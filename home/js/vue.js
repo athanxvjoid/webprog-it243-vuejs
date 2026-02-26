@@ -1,9 +1,9 @@
-  const app = Vue.createApp({
-   data() {
+ const app = Vue.createApp({
+  data() {
     return {
-     message: "Hello WEBPROG IT243 World!"
+      message: "Hello WEBPROG IT243 World!"
     }
-   }
-  })
-  
-  app.mount('#app')
+  }
+})
+
+app.mount('#app')
