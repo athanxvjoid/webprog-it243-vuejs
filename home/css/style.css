@@ -1,102 +1,14 @@
 * {
   box-sizing: border-box;
-  margin: 0;
-  padding: 0;
 }
 
 body {
   font-family: "Lucida Sans", sans-serif;
   font-size: 17px;
-  background-color: #f4f4f4;
-  padding: 20px;
-}
-
-h1 {
-  text-align: center;
-  margin-bottom: 20px;
-  color: #333;
-}
-
-.container {
-  display: grid;
-  grid-template-rows: auto 1fr auto;
-  gap: 15px;
-  max-width: 1000px;
-  margin: 0 auto;
-}
-
-header {
-  background-color: purple;
-  color: white;
-  text-align: center;
-  padding: 20px;
-  border-radius: 8px;
-}
-
-main {
-  display: grid;
-  grid-template-columns: 1fr 3fr;
-  gap: 15px;
-}
-
-.sidebar {
-  background-color: #33b5e5;
-  border-radius: 8px;
-  padding: 15px;
-  color: white;
-}
-
-.sidebar ul {
-  list-style: none;
-  padding: 0;
-  margin-top: 10px;
-}
-
-.sidebar ul li {
-  padding: 8px;
-  margin-bottom: 7px;
-  background-color: #0099cc;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.sidebar ul li:hover {
-  background-color: #007fa3;
-}
-
-.main-content {
-  background-color: white;
-  border-radius: 8px;
-  padding: 20px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
-}
-
-.main-content div {
-  background-color: #eef7ff;
-  border-left: 4px solid #33b5e5;
-  padding: 12px 15px;
-  border-radius: 4px;
-  font-weight: bold;
-  color: #333;
-}
-
-footer {
-  background-color: #0099cc;
-  color: white;
-  text-align: center;
-  padding: 15px;
-  border-radius: 8px;
 }
 
 .vue-message {
-  max-width: 1000px;
-  margin: 20px auto;
-  background-color: white;
-  border-radius: 8px;
-  padding: 15px 20px;
-  border-left: 4px solid purple;
+  margin-bottom: 20px;
 }
 
 .vue-message p {
@@ -106,19 +18,93 @@ footer {
 
 #app {
   display: inline-block;
-  padding: 10px 20px;
+  padding: 10px;
   font-size: x-large;
   background-color: lightblue;
-  border-radius: 4px;
-  font-weight: bold;
+}
+
+.container {
+  display: grid;
+  grid-template-areas:
+    'header'
+    'menu'
+    'main'
+    'facts'
+    'footer';
+  background-color: white;
+  gap: 10px;
+}
+
+header {
+  grid-area: header;
+  background-color: purple;
+  text-align: center;
+  color: #ffffff;
+}
+
+header > h1 {
+  font-size: 40px;
+}
+
+.sidebar {
+  grid-area: menu;
+}
+
+.sidebar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.sidebar li {
+  padding: 8px;
+  margin-bottom: 7px;
+  background-color: #33b5e5;
+  color: #ffffff;
+}
+
+.sidebar li:hover {
+  background-color: #0099cc;
+}
+
+.main-content {
+  grid-area: main;
+}
+
+.main-content > h1 {
+  font-size: 30px;
+  margin-bottom: 7px;
+}
+
+.main-content > p {
+  margin-bottom: 7px;
+}
+
+.facts {
+  grid-area: facts;
+  border: 1px solid #0099cc;
+  background-color: beige;
+  padding: 10px;
+}
+
+.facts > h2 {
+  font-size: 20px;
+}
+
+.facts li {
+  margin-bottom: 5px;
+}
+
+footer {
+  grid-area: footer;
+  background-color: #0099cc;
+  color: #ffffff;
+  text-align: center;
+  padding: 10px;
 }
 
 .gallery-section {
-  max-width: 1000px;
-  margin: 20px auto;
-  background-color: white;
-  border-radius: 8px;
-  padding: 20px;
+  margin-top: 20px;
 }
 
 .gallery-section h2 {
@@ -128,11 +114,21 @@ footer {
   padding-bottom: 8px;
 }
 
-@media (max-width: 600px) {
-  main {
-    grid-template-columns: 1fr;
+@media (min-width: 600px) {
+  .container {
+    grid-template-columns: repeat(6, 1fr);
   }
-  .main-content {
-    grid-template-columns: 1fr;
-  }
+  header  { grid-area: 1 / span 6; }
+  .sidebar { grid-area: 2 / span 1; }
+  .main-content { grid-area: 2 / span 4; }
+  .facts  { grid-area: 3 / span 6; }
+  footer  { grid-area: 4 / span 6; }
+}
+
+@media (min-width: 768px) {
+  header  { grid-area: 1 / span 6; }
+  .sidebar { grid-area: 2 / span 1; }
+  .main-content { grid-area: 2 / span 4; }
+  .facts  { grid-area: 2 / span 1; }
+  footer  { grid-area: 3 / span 6; }
 }
