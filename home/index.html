@@ -1,69 +1,67 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- CSS from Webprog-IT243-html-lessons repo -->
-  <link rel="stylesheet" href="https://raw.githack.com/athanxvjoid/Webprog-IT243-html-lessons/main/introduction/css/rwd.css">
-  <link rel="stylesheet" href="css/style.css?version=0.2">">
+  <title>My first Vue page</title>
+  <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/flexbox-grid.css">
   <link rel="stylesheet" href="css/images.css">
-
-
-  <title>WEBPROG IT243</title>
 </head>
 <body>
 
-  <!-- Vue App -->
-  <div id="app">
-    {{ message }}
+  <h1>Vue Example</h1>
+
+  <div class="container">
+    <header>
+      <h1>Personal Profile Web Page</h1>
+    </header>
+
+    <main>
+      <aside class="sidebar">
+        <h3>Navigation</h3>
+        <ul>
+          <li>About Me</li>
+          <li>Education</li>
+          <li>Course</li>
+          <li>IT Experience</li>
+          <li>Hobbies</li>
+          <li>Goals</li>
+          <li>Gallery</li>
+        </ul>
+      </aside>
+
+      <section class="main-content">
+        <div>1. About Me</div>
+        <div>2. Education / Achievements</div>
+        <div>3. Course</div>
+        <div>4. IT Experience</div>
+        <div>5. Hobbies & Interests</div>
+        <div>6. Goals In Life / Dream</div>
+        <div>7. Picture Gallery</div>
+      </section>
+    </main>
+
+    <footer>Asia Pacific College</footer>
   </div>
 
-  <h1 class="center">Personal Profile Web page of Patrick Pahayupan</h1>
-  <p>
-    About Me <br>
-    ( Do not include birthdate / age / contact information)<br>
-    Education / Achievements<br>
-    Course BS in Information Technology Asia Pacific College<br> 
-    IT Experience<br>
-    Hobbies & Interests<br>
-    Goals In Life / Dream<br>
-    Picture Gallery<br>
-    <img src="https://www.w3schools.com/html/img_girl.jpg" alt="Girl with a jacket" width="500" height="600">
-  </p>
+  <div class="vue-message">
+    <p>The message is taken from data inside the Vue instance.</p>
+    <div id="app">
+      {{ message }}
+    </div>
+  </div>
 
-  <div class="grid-container">
-    <div class="header"><h1>Chania</h1></div>
-    <div class="menu">
-      <ul>
-        <li>The Flight</li>
-        <li>The City</li>
-        <li>The Island</li>
-        <li>The Food</li>
-      </ul>
+  <div class="gallery-section">
+    <h2>Food Gallery</h2>
+    <div id="app2">
+      <div>
+        <img v-for="(x, index) in manyFoods" :key="index" :src="x" :alt="x">
+      </div>
     </div>
-    <div class="content">
-      <h1>The City</h1>
-      <p>Chania is the capital of the Chania region on the island of Crete.</p>
-      <p>The city can be divided in two parts, the old town and the modern city. The old town is situated next to the old harbour and is the matrix around which the whole urban area was developed.</p>
-      <p>Chania lies along the north west coast of the island Crete.</p>
-    </div>  
-    <div class="facts">
-      <h2>Facts:</h2>
-      <ul>
-        <li>Chania is a city on the island of Crete</li>
-        <li>Crete is a Greek island in the Mediterranean Sea</li>
-      </ul>
-    </div>
-    <div class="footer"><p>Resize the browser window to see the responsive effect.</p></div>
   </div>
 
   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
   <script src="js/vue.js"></script>
   <script src="js/images.js"></script>
-  <script src="https://raw.githack.com/athanxvjoid/webprog-it243-vuejs/main/home/js/vue.js"></script>
 
 </body>
 </html>
-
-
