@@ -1,12 +1,19 @@
-      #app2 > div {
-      border: solid black 1px;
-      width: 80%;
-      padding: 10px;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-around;
-    }
-    img {
-      width: 70px;
-      margin: 10px;
-    }
+#app2 > div {
+  border: solid #33b5e5 2px;
+  width: 100%;
+  padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  border-radius: 8px;
+}
+
+img {
+  width: 70px;
+  margin: 10px;
+  transition: transform 0.2s;
+}
+
+img:hover {
+  transform: scale(1.2);
+}
